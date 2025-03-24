@@ -96,6 +96,7 @@ class Board:
         move = self.move_stack.pop()
         self.grid[move.square] = None
         self.switch_turn()
+        self._check_outcome()
 
         return move
     
