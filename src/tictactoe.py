@@ -24,6 +24,7 @@ class Move:
 
 class Board:
     def __init__(self, turn: bool = X):
+        self.first_turn = turn
         self.turn = turn
         self.grid = {
             1: None, 2: None, 3: None,
@@ -99,6 +100,17 @@ class Board:
         self.switch_turn()
 
         return move
+
+
+    def reset(self):
+        self.turn = self.first_turn
+        self.grid = {
+            1: None, 2: None, 3: None,
+            4: None, 5: None, 6: None, 
+            7: None, 8: None, 9: None
+        }
+        self.outcome = None
+        self.move_stack = []
     
 
     def _check_outcome(self):

@@ -12,7 +12,8 @@ clear()
 board = tictactoe.Board()
 while board.outcome is None:
     print("Engine is calculating...")
-    print(f"Top engine move: {engine.generate_best_move(board).square}", "\n")
+    print(f"Top engine move: {engine.generate_best_move(board).square}")
+    print(f"Total evaluated positions: {engine.searched_positions:,} (More than you)", "\n")
     print(board, "\n")
     square = input(f"{"X" if board.turn else "O"} > ")
     clear()
@@ -30,4 +31,6 @@ while board.outcome is None:
 
 if board.outcome == "DRAW": print("The game was a draw.")
 else: print(f"{board.outcome} won the game!")
-print("\n", board)
+
+print()
+print(board)
