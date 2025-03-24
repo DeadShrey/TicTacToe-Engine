@@ -85,8 +85,8 @@ class Board:
         move = Move(self.turn, square)
         self.grid[square] = self.turn
         self.move_stack.append(move)
-        self.switch_turn()
         self._check_outcome()
+        self.switch_turn()
     
 
     def undo_move(self) -> Move:
@@ -95,8 +95,8 @@ class Board:
     
         move = self.move_stack.pop()
         self.grid[move.square] = None
-        self.switch_turn()
         self._check_outcome()
+        self.switch_turn()
 
         return move
     
