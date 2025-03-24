@@ -1,4 +1,5 @@
 import tictactoe
+import engine
 import os
 import platform
 
@@ -7,8 +8,11 @@ def clear():
     os.system("cls") if platform.system() == "Windows" else os.system("clear")
 
 
+clear()
 board = tictactoe.Board()
 while board.outcome is None:
+    print("Engine is calculating...")
+    print(f"Top engine move: {engine.generate_best_move(board).square}", "\n")
     print(board, "\n")
     square = input(f"{"X" if board.turn else "O"} > ")
     clear()
